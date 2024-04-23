@@ -1,16 +1,21 @@
 // src/App.tsx
 import React from 'react';
 import Chat from './components/Chat';
+import Layout from './components/Layout';
+import Bar from './components/Menu';
+import Plus from './components/Plus';
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-         {/* align center */}
-        <h1 style={{ textAlign: 'center' }}>Casa Carbonell Interactive Guide</h1>
+          <Bar />
       </header>
       <main>
-        <Chat />
+        <Layout>
+          <Chat />
+        </Layout>
+        <Plus />
       </main>
     </div>
   );

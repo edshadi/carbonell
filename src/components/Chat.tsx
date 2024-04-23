@@ -40,7 +40,7 @@ const Chat: React.FC = () => {
     //   tools: [{ type: "code_interpreter" }],
     //   model: "gpt-3.5-turbo-0125",
     // });
-    const assistant = await openai.beta.assistants.retrieve('asst_5df3jARuU2DXgjPljlDW7zo2')
+    const assistant = await openai.beta.assistants.retrieve('asst_A0ryZKZ3LnPKuSX7sP2kzeVO')
     // Create a thread
     const thread = await openai.beta.threads.create();
 
@@ -68,6 +68,10 @@ const Chat: React.FC = () => {
     // Run the assistant
     const run = await openai.beta.threads.runs.create(thread.id, {
       assistant_id: assistant.id,
+      additional_messages: [{
+        role: "assistant",
+        content: 'this user likes images and videos, always return image and video links when available and always suggest related questions after your answer'
+      }]
     });
 
     // Create a response
